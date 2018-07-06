@@ -34,14 +34,18 @@ namespace CustomList
         }
         public void Add(T value)
         {
-            
-            if(myArray.Length + 5 >= capacity)
-            {
-                capacity = capacity * 2;
-            }
-            for(count = 0; count < myArray.Length; count++)
+            TestCapacity();
+            for (count = 0; count < myArray.Length; count++)
             {
                 myArray[count] = value;
+            }
+        }
+        public void TestCapacity()
+        {
+            if (myArray.Length + 5 >= capacity)
+            {
+                capacity = capacity * 2;
+                myArray = new T[capacity];
             }
         }
     }
