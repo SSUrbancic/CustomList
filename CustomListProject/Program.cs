@@ -22,10 +22,22 @@ namespace CustomListProject
             firstList.Add(value);
             firstList.Add(value);
             firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+
             foreach (int i in firstList)
             {
                 Console.WriteLine(i);
             }
+            Console.WriteLine(firstList.ToString());
             Console.ReadLine();
         }
     }

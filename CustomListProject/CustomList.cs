@@ -111,5 +111,17 @@ namespace CustomListProject
             }
             myArray = tempArray;
         }
+        public override string ToString()
+        {
+            int excessCount = capacity - count;
+            int excessCharacterCount = excessCount * 2;
+            StringBuilder newString = new StringBuilder();
+            foreach (T i in myArray)
+            {
+                newString.Append(i).Append(", ");
+            }
+            string myArrayString = newString.ToString().Remove(newString.Length - excessCharacterCount - excessCount - 2);
+            return myArrayString;
+        }
     }
 }

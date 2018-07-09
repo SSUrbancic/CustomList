@@ -59,7 +59,7 @@ namespace CustomListTests
             myList.Add(expectedValue9);
             
             //Assert
-            Assert.AreEqual(expectedValue9, myList[9]);
+            Assert.AreEqual(expectedValue0, myList[0]);
         }
         [TestMethod]
         public void CountElementsInList_Length_TestLength()
@@ -208,9 +208,6 @@ namespace CustomListTests
             //Assert
             Assert.AreEqual(expectedLength, actualLength);
         }
-        public void IterateThroughList_CustomList_myList()
-        {
 
-        }
     }
 }
