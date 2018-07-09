@@ -11,33 +11,19 @@ namespace CustomListProject
         static void Main(string[] args)
         {
             CustomList<int> firstList = new CustomList<int>();
-            int value = 10;
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-            firstList.Add(value);
-
-            foreach (int i in firstList)
+            CustomList<int> secondList = new CustomList<int>();
+            firstList.Add(1);
+            firstList.Add(2);
+            firstList.Add(3);
+            secondList.Add(1);
+            secondList.Add(4);
+            secondList.Add(6);
+            CustomList<int> thirdList = new CustomList<int>();
+            thirdList = firstList - secondList;
+            foreach (int i in thirdList)
             {
                 Console.WriteLine(i);
             }
-            Console.WriteLine(firstList.ToString());
             Console.ReadLine();
         }
     }

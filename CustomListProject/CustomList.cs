@@ -44,6 +44,23 @@ namespace CustomListProject
             }
             return combinedList;
         }
+        public static CustomList<T> operator -(CustomList<T> List1, CustomList<T> List2)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            T value;
+            for (int i = 0; i < List1.count; i++)
+            {
+                value = List1[i];
+                for (int j = 0; j < List2.count; j++)
+                {
+                    if (value.Equals(List2[j]))
+                    {
+                        List1.Remove(value);
+                    }
+                }
+            }
+            return List1;
+        }
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < count; i++)
