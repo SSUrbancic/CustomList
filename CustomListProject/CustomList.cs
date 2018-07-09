@@ -14,7 +14,6 @@ namespace CustomListProject
         public T[] myArray;
         private int count;
         private int capacity;
-        private int length;
 
 
         //Constructor
@@ -25,11 +24,27 @@ namespace CustomListProject
             count = 0;
         }
         //Methods(CAN DO)
+
+
         public T this[int i] //INDEXER
         {
             get { return myArray[i]; }
             set { myArray[i] = value; }
         }
+        public static CustomList<T> operator +(CustomList<T> List1, CustomList<T> List2)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            for(int i = 0; i < List1.count; i++)
+            {
+                combinedList.Add(List1[i]);
+            }
+            for (int i = 0; i < List2.count; i++)
+            {
+                combinedList.Add(List2[i]);
+            }
+            return combinedList;
+        }
+
         public virtual int Capacity
         {
             get;

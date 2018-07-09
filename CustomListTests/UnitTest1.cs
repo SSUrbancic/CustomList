@@ -158,5 +158,55 @@ namespace CustomListTests
             //Assert
             Assert.AreEqual(expectedValue2, actualValue1);
         }
+        [TestMethod]
+        public void AddTwoLists_CustomList_ThirdList()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            //Act
+            firstList.Add(1);
+            firstList.Add(2);
+            secondList.Add(3);
+            secondList.Add(4);
+            CustomList<int> thirdList = firstList + secondList;
+            //Assert
+            Assert.AreEqual(4, thirdList[3]);
+        }
+        [TestMethod]
+        public void AddTwoListsTestLength_CustomList_ThirdList()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            int value = 9;
+            int expectedLength = 20;
+            
+            //Act
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            firstList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            secondList.Add(value);
+            CustomList<int> thirdList = firstList + secondList;
+            int actualLength = thirdList.Length();
+            //Assert
+            Assert.AreEqual(expectedLength, actualLength);
+        }
     }
 }
