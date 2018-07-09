@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomList
+namespace CustomListProject
 {
     public class CustomList<T>
     {
@@ -40,19 +40,19 @@ namespace CustomList
         }
         public void Add(T value)
         {
-            TestCapacity();             
+            TestCapacity();
             myArray[count] = value;
             count++;
-            
+
         }
         public void TestCapacity()
         {
             double eightyPercentCapacity = capacity * .8;
             if (count == eightyPercentCapacity)
             {
-               capacity = capacity * 2;
-               T[] tempArray = new T[capacity];
-               myArray = tempArray;
+                capacity = capacity * 2;
+                T[] tempArray = new T[capacity];
+                myArray = tempArray;
             }
         }
         public int Length()
@@ -64,14 +64,17 @@ namespace CustomList
         {
             T[] tempArray = new T[capacity];
             int indexOffSet = 0;
-            for (int i = 0; i < count; i++)
+            int loopLimit = count;
+            bool foundValue = false;
+            for (int i = 0; i < loopLimit; i++)
             {
-                if (!value.Equals(myArray[i]))
+                if (!value.Equals(myArray[i]) && foundValue == true || value.Equals(myArray[i]) && foundValue == true)
                 {
                     tempArray[i - indexOffSet] = myArray[i];
                 }
-                if (value.Equals(myArray[i]))
+                if (value.Equals(myArray[i]) && foundValue == false)
                 {
+                    foundValue = true;
                     indexOffSet++;
                     count--;
                 }
@@ -80,4 +83,3 @@ namespace CustomList
         }
     }
 }
-

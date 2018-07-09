@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomList;
+using CustomListProject;
 
 namespace CustomListTests
 {
@@ -112,15 +112,51 @@ namespace CustomListTests
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
-            int expectedValue0 = 0;
-            int expectedValue1 = 1;
+            int expectedValue0 = 16;
+            int expectedValue1 = 17;
             //Act
             myList.Add(expectedValue0);
             myList.Add(expectedValue1);
+            myList.Remove(17);
             int actualValue1 = myList[1];
             //Assert
-            Assert.AreNotEqual(expectedValue1, actualValue1);
+            Assert.AreEqual(0, actualValue1);
         }
-
+        [TestMethod]
+        public void RemoveMiddleInteger_Remove_TestIndex1()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expectedValue0 = 20;
+            int expectedValue1 = 11;
+            int expectedValue2 = 22;
+            //Act
+            myList.Add(expectedValue0);
+            myList.Add(expectedValue1);
+            myList.Add(expectedValue2);
+            myList.Remove(11);
+            int actualValue1 = myList[1];
+            //Assert
+            Assert.AreEqual(expectedValue2, actualValue1);
+        }
+        [TestMethod]
+        public void RemoveOnlyFirstOccurenceOfValue_Remove_TestIndex1()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expectedValue0 = 0;
+            int expectedValue1 = 1;
+            int expectedValue2 = 1;
+            int expectedValue3 = 2;
+            //Act
+            myList.Add(expectedValue0);
+            myList.Add(expectedValue1);
+            myList.Add(expectedValue2);
+            myList.Add(expectedValue3);
+            myList.Remove(1);
+            int actualValue1 = myList[1];
+            //Assert
+            Assert.AreEqual(expectedValue2, actualValue1);
+        }
     }
 }
