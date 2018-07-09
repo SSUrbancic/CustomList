@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         //Members(HAS A)
 
@@ -44,6 +44,17 @@ namespace CustomListProject
             }
             return combinedList;
         }
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return myArray[i];
+            }
+        }
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
 
         public virtual int Capacity
         {
@@ -67,6 +78,10 @@ namespace CustomListProject
             {
                 capacity = capacity * 2;
                 T[] tempArray = new T[capacity];
+                for(int i = 0; i < count; i++)
+                {
+                    tempArray[i] = myArray[i];
+                }
                 myArray = tempArray;
             }
         }

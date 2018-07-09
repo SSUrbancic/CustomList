@@ -208,5 +208,9 @@ namespace CustomListTests
             //Assert
             Assert.AreEqual(expectedLength, actualLength);
         }
+        public void IterateThroughList_CustomList_myList()
+        {
+
+        }
     }
 }
