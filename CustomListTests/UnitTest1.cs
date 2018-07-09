@@ -57,8 +57,70 @@ namespace CustomListTests
             myList.Add(expectedValue7);
             myList.Add(expectedValue8);
             myList.Add(expectedValue9);
+            
             //Assert
             Assert.AreEqual(expectedValue9, myList[9]);
         }
+        [TestMethod]
+        public void CountElementsInList_Length_TestLength()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expectedValue0 = 0;
+            int expectedValue1 = 1;
+            //Act
+            myList.Add(expectedValue0);
+            myList.Add(expectedValue1);
+            int expectedLength = 2;
+            int actualLength = myList.Length();
+            //Assert
+            Assert.AreEqual(expectedLength, actualLength);
+        }
+        [TestMethod]
+        public void TestLengthMethodAfterIncreasedCapacity_Length_TestLength()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expectedValue0 = 0;
+            int expectedValue1 = 1;
+            int expectedValue2 = 2;
+            int expectedValue3 = 3;
+            int expectedValue4 = 4;
+            int expectedValue5 = 5;
+            int expectedValue6 = 6;
+            int expectedValue7 = 7;
+            int expectedValue8 = 8;
+            int expectedValue9 = 9;
+            //Act
+            myList.Add(expectedValue0);
+            myList.Add(expectedValue1);
+            myList.Add(expectedValue2);
+            myList.Add(expectedValue3);
+            myList.Add(expectedValue4);
+            myList.Add(expectedValue5);
+            myList.Add(expectedValue6);
+            myList.Add(expectedValue7);
+            myList.Add(expectedValue8);
+            myList.Add(expectedValue9);
+            int expectedLength = 10;
+            int actualLength = myList.Length();
+            //Assert
+            Assert.AreEqual(expectedLength, actualLength);
+        }
+        [TestMethod]
+        public void RemoveInteger_Remove_TestIndex1()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expectedValue0 = 0;
+            int expectedValue1 = 1;
+            //Act
+            myList.Add(expectedValue0);
+            myList.Add(expectedValue1);
+            int actualValue1 = myList[1];
+            //Assert
+            Assert.AreNotEqual(expectedValue1, actualValue1);
+        }
+
     }
 }

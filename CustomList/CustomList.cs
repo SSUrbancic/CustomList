@@ -12,10 +12,10 @@ namespace CustomList
 
         // generic aray
         public T[] myArray;
-
         private int count;
         private int capacity;
-        
+
+
         //Constructor
 
         public virtual int Capacity { get; }
@@ -34,19 +34,33 @@ namespace CustomList
         }
         public void Add(T value)
         {
-            TestCapacity();
-            for (count = 0; count < myArray.Length; count++)
-            {
-                myArray[count] = value;
-            }
+            TestCapacity();             
+            myArray[count] = value;
+            count++;
+            
         }
         public void TestCapacity()
         {
-            if (myArray.Length + 5 >= capacity)
+            double eightyPercentCapacity = capacity * .8;
+            if (count == eightyPercentCapacity)
+                //check 60% or 80%
+                //cast 
+                //type double for temporary value
             {
-                capacity = capacity * 2;
-                myArray = new T[capacity];
+               capacity = capacity * 2;
+               T[] tempArray = new T[capacity];
+               myArray = tempArray;
             }
+        }
+        public int Length()
+        {
+            int length = count;
+            return length;
+        }
+        public void Remove()
+        {
+            
         }
     }
 }
+
