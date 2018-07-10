@@ -46,7 +46,6 @@ namespace CustomListProject
         }
         public static CustomList<T> operator -(CustomList<T> List1, CustomList<T> List2)
         {
-            CustomList<T> combinedList = new CustomList<T>();
             T value;
             for (int i = 0; i < List1.count; i++)
             {
@@ -139,6 +138,20 @@ namespace CustomListProject
             }
             string myArrayString = newString.ToString().Remove(newString.Length - excessCharacterCount - excessCount - 2);
             return myArrayString;
+        }
+        public CustomList<T> Zip(CustomList<T> List1, CustomList<T> List2)
+        {
+            CustomList<T> zippedArray = new CustomList<T>();
+            T[] tempArray = new T[capacity];
+            for (int i = 0; i < List1.count; i++)
+            {
+                for(int j = 0; j < List2.count; j++)
+                {
+                    zippedArray.Add(List1[i]);
+                    zippedArray.Add(List2[j]);
+                }
+            }
+            return zippedArray;
         }
     }
 }

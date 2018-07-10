@@ -208,6 +208,27 @@ namespace CustomListTests
             //Assert
             Assert.AreEqual(expectedLength, actualLength);
         }
-
+        [TestMethod]
+        public void ZipTwoListsTogether_Zip_ZippedList()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> thirdList = new CustomList<int>();
+            int value1 = 8;
+            int value2 = 9;
+            //Act
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            thirdList = thirdList.Zip(firstList, secondList);
+            //Assert
+            Assert.AreEqual(thirdList[1], thirdList[7]);   
+        }
     }
 }

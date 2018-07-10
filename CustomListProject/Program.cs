@@ -13,6 +13,9 @@ namespace CustomListProject
             CustomList<int> firstList = new CustomList<int>();
             CustomList<int> secondList = new CustomList<int>();
             firstList.Add(1);
+            firstList.Add(1);
+            firstList.Add(1);
+            firstList.Add(1);
             firstList.Add(2);
             firstList.Add(3);
             secondList.Add(1);
