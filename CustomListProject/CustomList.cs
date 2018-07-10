@@ -54,7 +54,7 @@ namespace CustomListProject
                 {
                     if (value.Equals(List2[j]))
                     {
-                        List1.Remove(value);
+                        List1.Remove(List1[i]);
                     }
                 }
             }
@@ -118,12 +118,16 @@ namespace CustomListProject
                 {
                     tempArray[i - indexOffSet] = myArray[i];
                 }
-                if (value.Equals(myArray[i]) && foundValue == false)
+                if (!value.Equals(myArray[i]) && foundValue == false)
+                {
+                    tempArray[i] = myArray[i];
+                }
+                else if (value.Equals(myArray[i]) && foundValue == false)
                 {
                     foundValue = true;
                     indexOffSet++;
                     count--;
-                }
+                }                
             }
             myArray = tempArray;
         }
@@ -141,15 +145,19 @@ namespace CustomListProject
         }
         public CustomList<T> Zip(CustomList<T> List1, CustomList<T> List2)
         {
+            int i = 0;
             CustomList<T> zippedArray = new CustomList<T>();
-            T[] tempArray = new T[capacity];
-            for (int i = 0; i < List1.count; i++)
+            while (i < List1.count || i < List2.count)
             {
-                for(int j = 0; j < List2.count; j++)
+                if (i < List1.count)
                 {
                     zippedArray.Add(List1[i]);
-                    zippedArray.Add(List2[j]);
                 }
+                if (i < List2.count)
+                {
+                    zippedArray.Add(List2[i]);
+                }
+                i++;
             }
             return zippedArray;
         }

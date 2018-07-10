@@ -57,7 +57,7 @@ namespace CustomListTests
             myList.Add(expectedValue7);
             myList.Add(expectedValue8);
             myList.Add(expectedValue9);
-            
+
             //Assert
             Assert.AreEqual(expectedValue0, myList[0]);
         }
@@ -181,7 +181,7 @@ namespace CustomListTests
             CustomList<int> secondList = new CustomList<int>();
             int value = 9;
             int expectedLength = 20;
-            
+
             //Act
             firstList.Add(value);
             firstList.Add(value);
@@ -228,7 +228,81 @@ namespace CustomListTests
             secondList.Add(value2);
             thirdList = thirdList.Zip(firstList, secondList);
             //Assert
-            Assert.AreEqual(thirdList[1], thirdList[7]);   
+            Assert.AreEqual(thirdList[1], thirdList[7]);
+        }
+        [TestMethod]
+        public void ZipTwoListsTogetherTestLength_Zip_ZippedList()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> thirdList = new CustomList<int>();
+            int value1 = 8;
+            int value2 = 9;
+            //Act
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            thirdList = thirdList.Zip(firstList, secondList);
+            int expectedLength = 8;
+            int actualLength = thirdList.Length();
+            //Assert
+            Assert.AreEqual(expectedLength, actualLength);
+        }
+        [TestMethod]
+        public void ZipTwoListsOfDifferentLengths_Zip_ZippedList()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> thirdList = new CustomList<int>();
+            int value1 = 8;
+            int value2 = 9;
+            //Act
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            firstList.Add(value1);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            secondList.Add(value2);
+            thirdList = thirdList.Zip(firstList, secondList);
+            int expectedLength = 11;
+            int actualLength = thirdList.Length();
+            //Assert
+            Assert.AreEqual(expectedLength, actualLength);
+        }
+        [TestMethod]
+        public void TestString_ToString_ListToString()
+        {
+            //Arrange
+            CustomList<int> firstList = new CustomList<int>();
+ 
+            int value1 = 8;
+            int value2 = 9;
+            //Act
+            firstList.Add(value1);
+            firstList.Add(value2);
+            firstList.Add(value1);
+            firstList.Add(value2);
+            firstList.Add(value1);
+            firstList.Add(value2);
+            firstList.Add(value1);
+            firstList.Add(value2);
+            firstList.Add(value1);
+            string expectedString = "8, 9, 8, 9, 8, 9, 8, 9, 8";
+            string actualString = firstList.ToString();
+            //Assert
+            Assert.AreEqual(expectedString, actualString);
         }
     }
 }
